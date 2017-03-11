@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <title>Krowdspace Internal Interface</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="grid.css">
   <link rel="stylesheet" type="text/css" href="css/interface.css" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
   <body>
     <riot-tabs></riot-tabs>
+    <!--<contact></contact>
+    <hr>
+    <approval></approval>
+    <hr>
+    <register></register>-->
   </body>
    <script type="riot/tag" src="src/tab.tag"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.3.2/riot+compiler.min.js"></script>
-  <script>riot.mount('riot-tabs')</script>
+    <script type="riot/tag" src="build/approval.tag"></script>
+    <script type="riot/tag" src="build/contact.tag"></script>
+    <script type="riot/tag" src="build/register.tag"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.3.2/riot+compiler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/riot-route/3.0.1/route.min.js"></script>
+  <script>riot.mount('*')</script>
 </html>

@@ -43,54 +43,33 @@
     </div>
   </div>
   <ul class="list--bare">
-    <li each={ tab, i in tabs } class="tab { is-active: parent.isActiveTab(tab.ref) }" onclick={ parent.toggleTab }>{tab.title}</li>
+    <li each={ tabs } class="tab { is-active: parent.isActiveTab( ref) }" onclick={ parent.toggleTab }>{ title }</li>
   </ul>
   <div class="tabContent">
-    <div each={ tab, i in tabs } class="tabContent__item { is-active: parent.isActiveTab(tab.ref) }">{tab.content}
-      <table>
-    <tr>
-      <td>
-       { tab.FNNAME }
-      </td>
-      <td>
-        { tab.LNAME }
-      </td>
-      <td>
-        { tab.EMAIL }
-      </td>
-        <td>
-        { tab.KSUSER }
-        </td>
-        <td>
-        { tab.PROJECT }
-        </td>
-    </tr>
-  </table>
+    <register ref='tab1' if={ activeTab == "tab1" }></register>
+    <contact ref='tab2' if={ activeTab == "tab2" }></contact>
+    <approval ref='tab3' if={ activeTab == "tab3" }></approval>
     </div>
   </div>
-  
-  
-  var json = [
-	{"FNAME":"Mason","LNAME":"Halstead","EMAIL":"mason@krowdspace.com","KSUSER":"Masonkickstarter","IGUSER":"Masonindiegogo","PROJECT":"Yes"},
-	{"FNAME":"Mason","LNAME":"Halstead","EMAIL":"mason@krowdspace.com","KSUSER":"Masonkickstarter","IGUSER":"Masonindiegogo","PROJECT":"Yes"},
-	{"FNAME":"Mason","LNAME":"Halstead","EMAIL":"mason@krowdspace.com","KSUSER":"Masonkickstarter","IGUSER":"Masonindiegogo","PROJECT":"Yes"},
-	];
-  this.tabs = [
-    { title: 'Register', ref: 'tab1',FNAME:"Mason",LNAME:"Halstead",EMAIL:"mason@krowdspace.com",KSUSER:"Masonkickstarter",IGUSER:"Masonindiegogo",PROJECT:"Yes" },
+  <script>
+    this.tabs = [
+      { title: 'Register', ref: 'tab1' },
 
-    { title: 'Contact', ref: 'tab2', content: "(2) Lo-fi brunch literally jean shorts, retro pickled taxidermy selfies mlkshk. Mumblecore sartorial drinking vinegar, Pinterest roof party biodiesel pour-over gastropub. Deep v Bushwick church-key, banh mi four dollar toast Carles Helvetica. Sartorial narwhal twee farm-to-table, ethical tousled single-origin coffee. Health goth seitan +1 ugh, artisan pour-over forage blog Vice. Health goth blog Austin shabby chic chillwave drinking vinegar. IPhone 90's cray dreamcatcher, Bushwick seitan bicycle rights." },
+      { title: 'Contact', ref: 'tab2' },
 
-    { title: 'Approval', ref: 'tab3', content: "(3) Cred Neutra Godard meditation bespoke. Vice bespoke kitsch, Truffaut selvage Helvetica semiotics Kickstarter fixie plaid jean shorts viral four dollar toast cronut pickled. Organic photo booth scenester readymade Etsy Intelligentsia YOLO, Carles Blue Bottle. Tattooed forage slow-carb lo-fi cornhole. Synth chillwave Pinterest yr, selvage direct trade DIY letterpress lumbersexual Intelligentsia Odd Future pour-over. Kickstarter gastropub synth aesthetic health goth, tote bag lumbersexual Portland food truck asymmetrical. Asymmetrical cliche put a bird on it Austin meggings." }
-  ];
+      { title: 'Approval', ref: 'tab3' }
+    ];
 
-  this.activeTab = 'tab1';
+    this.activeTab = 'tab1';
 
-  isActiveTab(tab) {
-    return this.activeTab === tab;
-  }
+    isActiveTab(tab) {
+      return this.activeTab === tab;
+    }
 
-  toggleTab(e) {
-    this.activeTab = e.item.tab.ref;
-    return true;
-  }
+    toggleTab(e) {
+      console.log(e.item);
+      this.activeTab = e.item.ref;
+      return true;
+    }
+  </script>
 </riot-tabs>

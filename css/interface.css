@@ -1,97 +1,15 @@
-* {
-    text-decoration: none;
-    list-style: none;
-}
+*, *:before, *:after {
+  box-sizing: border-box;
+     text-decoration: none;
+    list-style: none; }
 
-body  { 
+body{ 
     font-family: 'Montserrat', sans-serif;
     color: #000000;
     font-size:15px;
-} 
-.row {
-    clear: both;
-    max-width: 1200px;
-    min-width: 800px;
-    margin: 0 auto;
-}
-[class^="col-"] {
-    float: left;
-    margin: 0 3.84615384615% 0 0;
-    list-style: none;
-    position: relative;
-}
-[class^="col-"]:last-child {
+    line-height: 1.5;
     margin: 0;
-}
-.col-1 {
-    width: 4.8076923077%
-}
-.col-2 {
-    width: 13.4615384615%
-}
-.col-3 {
-    width: 22.1153846154%
-}
-.col-4 {
-    width: 30.7692307692%
-}
-.col-5 {
-    width: 39.4230769231%
-}
-.col-6 {
-    width: 48.0769230769%
-}
-.col-7 {
-    width: 56.7307692308%
-}
-.col-8 {
-    width: 65.3846153846%
-}
-.col-9 {
-    width: 74.0384615385%
-}
-.col-10 {
-    width: 82.6923076923%
-}
-.col-11 {
-    width: 91.3461538462%
-}
-.col-12 {
-    width: 100%;
-    margin: 0
-}
-[class^="offset-"]:last-child {} .offset-1 {
-    margin-left: 8.65384615385%
-}
-.offset-2 {
-    margin-left: 17.30769230765%
-}
-.offset-3 {
-    margin-left: 25.96153846155%
-}
-.offset-4 {
-    margin-left: 34.61538461535%
-}
-.offset-5 {
-    margin-left: 43.26923076925%
-}
-.offset-6 {
-    margin-left: 51.92307692305%
-}
-.offset-7 {
-    margin-left: 60.57692307695%
-}
-.offset-8 {
-    margin-left: 69.23076923075%
-}
-.offset-9 {
-    margin-left: 77.88461538465%
-}
-.offset-10 {
-    margin-left: 86.53846153845%
-}
-.offset-11 {
-    margin-left: 95.19230769235%
+    padding: 0;
 }
 .fa-stack {
     color: #7dbcd1;
@@ -195,7 +113,33 @@ th, td{
 }
 a {
     color:#7dbcd1;
+    cursor: pointer;
+    border-bottom: 1px dotted; 
 }
 a:hover {
     color:#479eb5;
 }
+.list--bare, .post__locations, .listing__comments {
+  margin: 0;
+  }
+
+.tab {
+  display: inline-block;
+  vertical-align: middle;
+  width: 75px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid;
+  background-color: #FFF;
+  margin-bottom: -1px;
+  margin-right: 5px; }
+  .tab.is-active {
+    border-bottom: none; }
+
+.tabContent {
+  border: 1px solid;
+  padding: 20px; }
+riot-typeahead {
+  display: block; }
