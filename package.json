@@ -1,0 +1,15 @@
+{
+  "name": "krowdspacenode",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "watch:riot": "riot -w src/ build/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "riot": "^3.3.2"
+  }
+}
