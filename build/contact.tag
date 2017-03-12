@@ -1,8 +1,7 @@
 <contact>
-    <h1>test</h1>
-    <!-- <tbody> -->
-        <table each={ contact }>
-            <tr>
+        <table>
+             <thead>
+            <tr each={ contact }>
                 <td>
                     { FNAME }
                 </td>
@@ -16,10 +15,32 @@
                     { MESSAGE }
                 </td>
             </tr>
+        </thead>
         </table>
-    <!-- </tbody> -->
     <script>
-        this.contact = [{
+    var $ = require("jquery");
+
+      var self = this;
+         function getAll() {
+            var root = 'https://jsonplaceholder.typicode.com/posts/1';
+                $.ajax({
+                    url: root,
+                    method: 'GET',
+                    success: function(data) {
+                        //self.update(JSON.parse(data));
+                        console.log(data);
+                   }
+                });
+ 		}
+ 		this.on('mount', getAll);
+
+        this.contact = [
+            {
+                FNAME: "First Name",
+                LNAME: "Last Name",
+                EMAIL: "EMAIL",
+                MESSAGE: "MESSAGE"
+            },{
                 FNAME: "Mason",
                 LNAME: "Halstead",
                 EMAIL: "mason@krowdspace.com",

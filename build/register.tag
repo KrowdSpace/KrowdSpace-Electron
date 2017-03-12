@@ -1,30 +1,55 @@
 <register>
-
-        <table each={ register }>
-            <tr>
-                <td>
+        <table>
+        <thread>
+            <tr each={ register }>
+                <th>
                     { FNAME }
-                </td>
-                <td>
+                </th>
+                <th>
                     { LNAME }
-                </td>
-                <td>
-                    { EMAIL }
-                </td>
-                <td>
+                </th>
+                <th>
+                    {  EMAIL }
+                </th>
+                <th>
                     { KSUSER }
-                </td>
-                <td>
+                </th>
+                <th>
                     { IGUSER }
-                </td>
-                <td>
+                </th>
+                <th>
                     { PROJECT }
-                </td>
+                </th>
             </tr>
+            </thread>
         </table>
     <script>
-        this.register = [{
-                FNAME2: "Mason",
+    var $ = require("jquery");
+
+      var self = this;
+         function getAll() {
+            var root = 'https://jsonplaceholder.typicode.com/posts/1';
+                $.ajax({
+                    url: root,
+                    method: 'GET',
+                    success: function(data) {
+                        //self.update(JSON.parse(data));
+                        console.log(data);
+                   }
+                });
+ 		}
+ 		this.on('mount', getAll);
+
+        this.register = [
+            {
+                FNAME: "First Name",
+                LNAME: "Last Name",
+                EMAIL: "EMAIL",
+                KSUSER: "KickStarter User",
+                IGUSER: "Indiegogo User",
+                PROJECT: "PROJECT"
+            },{
+                FNAME: "Mason",
                 LNAME: "Halstead",
                 EMAIL: "mason@krowdspace.com",
                 KSUSER: "Masonkickstarter",

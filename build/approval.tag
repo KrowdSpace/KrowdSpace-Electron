@@ -1,50 +1,59 @@
 <approval>
-    <table each={ approve }>
-        <tr>
-            <td>
-                { FNAME1}
-            </td>
-            <td>
-                { LNAME }
-            </td>
-            <td>
-                { PROJECTURL }
-            </td>
-            <td>
-                { REWARD }
-            </td>
-        </tr>
-    </table>
+   <table>
+             <thead>
+            <tr each={ approve }>
+                <th>
+                    { FNAME }
+                </th>
+                <th>
+                    { LNAME }
+                </th>
+                <th>
+                    { PROJECTURL }
+                </th>
+                <th>
+                    { REWARD }
+                </th>
+            </tr>
+        </thead>
+        </table>
 
     <script>
+    var $ = require("jquery");
+
       var self = this;
          function getAll() {
-            var root = 'http://localhost:8080/users/1/socials';
+            var root = 'https://jsonplaceholder.typicode.com/posts/1';
                 $.ajax({
                     url: root,
                     method: 'GET',
                     success: function(data) {
-                        self.update(JSON.parse(data));
+                        //self.update(JSON.parse(data));
+                        console.log(data);
                    }
                 });
  		}
  		this.on('mount', getAll);
-        // var x = "Yes";
-        //var y = "No";
-        this.approve = [{
-                FNAME1: "andre",
+        this.approve = [
+            {
+                FNAME: "First Name",
+                LNAME: "Last Name",
+                PROJECTURL: "Project Url",
+                REWARD: "REWARD"
+            },{
+                FNAME: "andre",
                 LNAME: "Halstead",
                 PROJECTURL: "mason@krowdspace.com",
                 REWARD: "Hi you guys have made a cool website. I want to join and boost my project"
             },
             {
-                FNAME1: "andre",
+                FNAME: "andre",
                 LNAME: "Halstead",
                 PROJECTURL: "mason@krowdspace.com",
                 REWARD: "Hi you guys have made a cool website. I want to join and boost my project"
             },
             {
-                FNAME1: "Andre",
+                FNAME: "Andre",
                 LNAME: "Halstead",
                 PROJECTURL: "mason@krowdspace.com",
                 REWARD: "Hi you guys have made a cool website. I want to join and boost my project"

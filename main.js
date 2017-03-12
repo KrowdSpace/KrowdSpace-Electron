@@ -1,4 +1,5 @@
 const electron = require('electron')
+const fs = require('fs');
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -19,11 +20,15 @@ function createWindow () {
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
-    slashes: true
-  }))
+    slashes: true,
+  }));
 
+  fs.watch(__dirname, {recursive: true,persistent:false},()=>{
+    if(mainWindow)
+      mainWindow.reload();
+  });
   // Open the DevTools.
-//   mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -31,7 +36,7 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
-  })
+  });
 }
 
 // This method will be called when Electron has finished
