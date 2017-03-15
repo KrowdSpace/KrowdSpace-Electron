@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "watch:riot": "riot -w src/ build/"
+    "watch:riot": "riot -w src/ build/",
+      "start": "electron ."
   },
   "author": "",
   "license": "ISC",
